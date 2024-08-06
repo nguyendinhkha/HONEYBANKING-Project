@@ -1,0 +1,562 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('/static/HONEYBANKING-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.honeybanking {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0058d4;
+    margin-right: 30px;
+}
+
+.left-nav a {
+    padding: 10px;
+    color: black; 
+    text-decoration: none;
+    margin-right: 10px;
+}
+.left-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the color and transparency as needed */
+    color: #911331; /* Text color on hover */
+    border-radius: 20px; 
+}
+
+.right-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: none;
+    padding: 10px 20px;
+    margin-right: 40px; /* Adjust margin to ensure proper spacing */
+}
+
+.right-nav a {
+    padding: 10px;
+    color: black; 
+    text-decoration: none;
+    margin-left: 20px;
+    color: #333;
+}
+
+.right-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the color and transparency as needed */
+    color: #911331; /* Text color on hover */
+    border-radius: 20px; 
+
+}
+
+/* Đăng nhập button */
+.login {
+    position: absolute;
+    top: 15px; /* Adjust this value to align vertically with other buttons */
+    right: 20px; /* Adjust this value to align horizontally with the right edge */
+    background-color: #9a1635;
+    color: #fff;
+    font-size: 20px; /* Adjust the font size as needed */
+    padding: 10px 20px; /* Adjust padding for desired button size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login a {
+    color: #f8ffff;
+    text-decoration: none;
+}
+
+.login:hover {
+    background-color: #911331; /* Light green on hover */
+}
+
+.greetings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: center;
+    height: calc(100vh - 60px);
+    color: #f4825e;
+    text-align: left; /* Center text */
+    padding-left: 50px; /* Remove padding to center the content */
+}
+
+.greeting-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 5px; /* Add space between the greeting container and the paragraph */
+}
+
+.greetings h1 {
+    font-size: 3em;
+    margin-bottom: 5px; /* Remove bottom margin for better alignment */
+    color: #ff2065;
+}
+
+.greeting-icon {
+    margin-right: 10px; /* Space between the icon and the text */
+    width: 50px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.greetings p {
+    color: #f4825e;
+    font-size: 1.5em;
+    margin-top: 5px; /* Move closer to the greeting text */
+    color: #ff2065;
+}
+
+.greetings input {
+    padding: 10px;
+    margin-right: 20px;
+    font-size: 1.2em;
+    width: 30%; /* Adjust the width as needed */
+    margin-top: 10px; /* Add space between the paragraph and input */
+    border-radius: 20px;
+}
+
+/* Footer Slide */
+.bottom-slide {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 20px; /* Leave space at the bottom */
+    left: 50px; /* Leave space on the left */
+    right: 300px; /* Leave space on the right */
+    z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+.slide-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slide-item img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.slide-item:hover {
+    background-color: #f0fcf0;
+    border-radius: 20px;
+}
+
+.slide-item p {
+    margin: 10px 0 0;
+    font-size: 20px;
+    color: #333;
+    transition: font-weight 0.4s ease;
+}
+
+.slide-item:hover p {
+    font-weight: bold;
+}
+
+
+
+/* account_overview */
+.account-page {
+    font-family: Arial, sans-serif;
+    background-color: #fff7f7;
+    margin: 0;
+    padding: 0;
+    background-image: none; 
+}
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background-color: #20C997;
+    position: fixed;
+    height: calc(100% - 45px); /* Adjust height to leave space at the top and bottom */
+    padding-top: 15px;
+    margin-top: 10px; /* Add margin at the top */
+    margin-left: 10px; /* Add margin on the left */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.bank-name {
+    font-size: 20px;
+    color: #0058d4;
+    margin: 0;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-info img.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-info h3, .user-info p {
+    margin: 5px 0;
+    color: #0058d4;
+}
+
+.sidebar-nav {
+    width: 100%;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px 0;
+    text-align: left;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;  /* Change color to white for visibility */
+    background: #f1eded;  /* Ensure background color contrasts with text color */
+    border: none;
+    border-radius: 10px;
+    transition: color 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;  /* Ensure buttons take full width */
+    height: 30px; /* Adjust height if necessary */
+    margin-left: 16px;
+    margin-right: 20px;
+}
+
+.sidebar-nav a:hover {
+    color: #af1237;  /* Optional: Change hover color for better visibility */
+}
+
+.sidebar-nav a .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.logout-container {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    display: block;
+    padding: 10px 15px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* search bar */
+/* Container for the search bar */
+.search-bar-header {
+    position: fixed;
+    top: 20px; /* Adjust the position from the top */
+    left: 50%;
+    transform: translateX(-60%); /* Adjust the translateX value to move to the left */
+    width: calc(100% - 40px); /* Adjust width with margins */
+    max-width: 800px;
+    background-color: white;
+    z-index: 1000;
+    padding: 10px 20px; /* Adjust padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 25px; /* Rounded corners */
+}
+
+/* Style for the search bar */
+.search-bar input {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px; /* Adjust padding for input */
+    border-radius: 25px;
+    border: 1px solid transparent; /* Remove the border */
+    text-align: left; /* Align text to the left */
+    box-shadow: none; /* Remove the box-shadow */
+    font-size: 16px; /* Adjust font size */
+    background-color: white; /* Make the input background white */
+}
+.search-bar input::placeholder {
+    color: #aaa;
+    font-size: 16px; /* Adjust placeholder font size */
+}
+
+.search-bar input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search-suggestions {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.search-suggestions p {
+    margin: 0;
+    color: #aaa;
+}
+
+.suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.suggestions span {
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.suggestions span:hover {
+    background-color: #ddd;
+}
+
+/* banner home*/
+.banner {
+    width: calc(100% - 40px); /* Same width as search bar */
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 80px; /* Adjust margin-top if needed */
+    margin-left: 125px;
+    border-radius: 20px; /* Optional: if you want rounded corners */
+    overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+.banner img {
+    border-radius: 20px; /* Adjust border-radius */  
+    width: 80%;
+    height: 400px;
+    padding: 10px;
+    display: block;
+}
+
+/* Banner Container */
+.banner_container {
+    width: 100%;
+    max-width: 800px; /* Match with search bar's max-width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px 0; /* Add some padding for spacing */
+}
+
+/* services */
+.services-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    margin: 30px 0;
+    margin-left: 50px; /* Adjust this value to match the left padding of the banner image */
+}
+
+/* service-buttons */
+.service-buttons {
+    display: flex;
+    justify-content: left; /* Adjust alignment as needed */
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 20px 20px 0;
+    padding-left: 20px; /* Add padding to match the alignment */
+}
+
+/* Additional services */
+.additional-services {
+    display: flex;
+    justify-content: left; /* Align buttons to the left */
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 20px 20px 0;
+    padding-left: 20px; /* Add padding to match the alignment */
+}
+
+.service-item {
+    width: 15%; /* Adjust width to fit four items per row */
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 20px; /* Add space between rows */
+    
+}
+
+.service-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.service-item:hover p {
+    color: red; /* Change text color to red on hover */
+}
+
+
+/* Sidebar styles */
+.settings-sidebar {
+    background-color: #ffff;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Position the sidebar fixed */
+    top: 20px; /* Top position */
+    right: 20px; /* Position it from the right edge */
+    bottom: 20px; /* Bottom position to leave space */
+    overflow-y: auto; /* Add scrollbar if content overflows */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure space between elements */
+}
+
+.settings-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: sticky; /* Make the title sticky */
+    top: 0; /* Stick to the top */
+    background-color: #fff; /* Ensure background color is consistent */
+   
+    z-index: 1; /* Ensure it stays above other content */
+}
+
+.settings-list {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1; 
+    overflow-y: auto;
+    margin-top: 0;
+    max-height: calc(100% - 60px); /* Adjust to ensure Hỏi đáp button has space */
+
+}
+
+.settings-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.settings-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.settings-item a {
+    font-size: 20px; /* Increase font size */
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.settings-item a:hover {
+    color: red;
+}
+
+
+/* Make the "Hỏi đáp" button bigger and position it at the bottom left */
+.settings-item.hoidap {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+.settings-item.hoidap img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.settings-item.hoidap a {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+

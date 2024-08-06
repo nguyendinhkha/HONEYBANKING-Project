@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Overview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
+
+</head>
+<body class="account-page">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='HONEYBANKING.jpg') }}" alt="HONEYBANKING Logo" class="logo">
+                <span class="bank-name">HONEYBANKING</span>
+            </div>
+            <div class="user-info">
+                <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="User Avatar" class="avatar">
+                <h3>{{ user.full_name }}</h3>
+                <p>STK: {{ user.stk }}</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="{{ url_for('transfer') }}">
+                    <img src="{{ url_for('static', filename='chuyentien.jpg') }}" alt="Chuyển tiền" class="icon">
+                    Chuyển tiền
+                </a>
+                <a href="{{ url_for('account') }}">
+                    <img src="{{ url_for('static', filename='taikhoan.jpg') }}" alt="Tài khoản" class="icon">
+                    Tài khoản
+                </a>
+                <a href="#">
+                    <img src="{{ url_for('static', filename='dichvuthe.jpg') }}" alt="Dịch vụ thẻ" class="icon">
+                    Dịch vụ thẻ
+                </a>
+            </nav>
+            <div class="logout-container">
+                <a href="{{ url_for('logout') }}" class="logout-btn">Đăng xuất</a>
+            </div>
+
+        </aside>
+ 
+        <main class="main-content">
+            <div class="top-bar">
+                <a href="{{ url_for('account_overview') }}" class="home-link">
+                    <img src="{{ url_for('static', filename='icons/home.svg') }}" alt="Home Icon" class="home-icon">
+                    Trang chủ
+                </a>
+                <div class="current-page">
+                    <img src="{{ url_for('static', filename='icons/right-vector.svg') }}" alt="Right Vector" class="right-vector-icon">
+                    <span>Tài khoản</span>       
+                </div>
+            </div>
+         <div class="section-handle">
+            Thông tin tài khoản
+         </div>
+         <section class="account-details">
+            <h2>Danh sách tài khoản thanh toán</h2>
+            <div class="account-info">
+                <div class="account-info-item">
+                    <div class="account-left">
+                        <span>Tài khoản thanh toán</span>
+                        <span>{{ user.stk }}</span>
+                        <button class="copy-btn">
+                            <img src="{{ url_for('static', filename='icons/copy-icon.svg') }}" alt="Copy Icon">Sao chép
+                        </button>
+                    </div>
+                    <div class="account-right">
+                        <span>Số dư khả dụng</span>
+                        <span>{{ user.balance }} VND</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        </main>
+    </div>
+
+</body>
+</html>

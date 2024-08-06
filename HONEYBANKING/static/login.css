@@ -1,0 +1,184 @@
+.login-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/static/vast-green.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.top-left {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.HONEYBANKING-text {
+    font-size: 40px;
+    color: #0058d4;
+}
+
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Adjusted width to make it thinner */
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #b22222; /* Adjust color to match the example */
+    font-size: 24px; /* Adjust font size */
+}
+
+.login-form p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #555; /* Add the desired label color */
+}
+
+.login-form input[type="tel"],
+.login-form input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b22222; /* Adjust color to match the example */
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: #a52a2a; /* Adjust color to match the example */
+}
+
+.login-form a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #b22222; /* Adjust color to match the example */
+    text-decoration: none;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+
+
+.error-message {
+    display: none; /* Adjust based on how you want to handle error messages */
+}
+
+/* Add these styles to the existing styles.css */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 300px;
+    text-align: center;
+}
+
+.popup .popup-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup .popup-body {
+    margin: 20px 0;
+}
+
+.popup .popup-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.popup .close {
+    cursor: pointer;
+}
+
+.popup .popup-close-button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup .popup-close-button:hover {
+    background-color: #b71c1c;
+}
+
+
+.help-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.help-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.help-button a {
+    font-size: 20px; /* Increase font size */
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.help-button img {
+    width: 20px; /* Adjust the size as needed */
+    margin-right: 10px;
+    fill: white; /* Change this to the desired color */
+}
+

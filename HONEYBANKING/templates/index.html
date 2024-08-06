@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="{{ url_for('static', filename='HONEYBANKING.jpg') }}" alt="HONEYBANKING Logo" class="logo">
+            <div class="honeybanking">HONEYBANKING</div>
+            <nav class="left-nav">
+                <a href="#">Khách hàng cá nhân</a>
+                <a href="#">Khách hàng doanh nghiệp</a>
+                <a href="#">Định chế tài chính</a>
+            </nav>
+        </div>
+        <nav class="right-nav">
+            <a href="#">Về Agribank</a>
+            <a href="#">Tin tức</a>
+            <a href="#">Tuyển dụng</a>
+            <a href="#">Hỏi đáp</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+        <div class="login">
+            <a href="{{ url_for('login') }}">Đăng nhập</a>
+        </div>
+    </header>
+    <main>
+        <section class="greetings">
+            <div class="greeting-container">
+                <img src="{{ url_for('static', filename='weather.svg') }}" alt="icon" class="greeting-icon">
+                <h1>Chào buổi sáng</h1>
+            </div>
+            <p>Quý khách đang tìm kiếm gì hôm nay?</p>
+            <input type="text" placeholder="Thẻ tín dụng, vay tiêu dùng,...">
+        </section>
+    </main>
+    <footer>
+        <div class="bottom-slide">
+            <div class="slide-item">
+                <img src="{{ url_for('static', filename='bottom_slide/Goiysanpham.svg') }}" alt="Gợi ý sản phẩm">
+                <p>Gợi ý sản phẩm</p>
+            </div>
+            <div class="slide-item">
+                <img src="{{ url_for('static', filename='bottom_slide/Tinnoibat.svg') }}" alt="Tin nổi bật">
+                <p>Tin nổi bật</p>
+            </div>
+            <div class="slide-item">
+                <img src="{{ url_for('static', filename='bottom_slide/Datlichhen.svg') }}" alt="Đặt lịch hẹn">
+                <p>Đặt lịch hẹn</p>
+            </div>
+            <div class="slide-item">
+                <img src="{{ url_for('static', filename='bottom_slide/Dangkytructuyen.svg') }}" alt="Đăng ký trực tuyến">
+                <p>Đăng ký trực tuyến</p>
+            </div>
+            <div class="slide-item">
+                <img src="{{ url_for('static', filename='bottom_slide/Uudai.svg') }}" alt="Ưu đãi">
+                <p>Ưu đãi</p>
+            </div>
+        </div>
+    </footer>
+</html>

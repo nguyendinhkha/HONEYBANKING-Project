@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='transaction_history.css') }}">
+</head>
+<body class="transaction-history-page">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='HONEYBANKING.jpg') }}" alt="HONEYBANKING Logo" class="logo">
+                <span class="bank-name">HONEYBANKING</span>
+            </div>
+            <div class="user-info">
+                <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="User Avatar" class="avatar">
+                <h3>{{ user.full_name }}</h3>
+                <p>STK: {{ user.stk }}</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="{{ url_for('transfer') }}">
+                    <img src="{{ url_for('static', filename='chuyentien.jpg') }}" alt="Chuyển tiền" class="icon">
+                    Chuyển tiền
+                </a>
+                <a href="{{ url_for('account') }}">
+                    <img src="{{ url_for('static', filename='taikhoan.jpg') }}" alt="Tài khoản" class="icon">
+                    Tài khoản
+                </a>
+                <a href="#">
+                    <img src="{{ url_for('static', filename='dichvuthe.jpg') }}" alt="Dịch vụ thẻ" class="icon">
+                    Dịch vụ thẻ
+                </a>
+            </nav>
+            <div class="logout-container">
+                <a href="{{ url_for('logout') }}" class="logout-btn">Đăng xuất</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="top-bar">
+                <a href="{{ url_for('account_overview') }}" class="home-link">
+                    <img src="{{ url_for('static', filename='icons/home.svg') }}" alt="Home Icon" class="home-icon">
+                    Trang chủ
+                </a>
+                <div class="current-page">
+                    <img src="{{ url_for('static', filename='icons/right-vector.svg') }}" alt="Right Vector" class="right-vector-icon">
+                    <span> Lịch sử giao dịch</span>
+                </div>
+            </div>
+            <div class="section-handle">
+                Lịch sử giao dịch
+            </div>
+            <div class="search-transaction-content">
+                <p class="search-transaction">Tra cứu giao dịch</p>
+                <p class="warning-text">Quý khách lưu ý: Thời gian tìm kiếm giới hạn trong 31 ngày. Báo cáo chỉ bao gồm các giao dịch trên ứng dụng</p>
+                <form>
+                    <div class="form-group">
+                        <label for="account">Tài khoản</label>
+                        <select id="account" name="account">
+                            <option value="{{ user.stk }}">{{ user.stk }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group right">
+                        <label for="transaction-type">Loại giao dịch</label>
+                        <select id="transaction-type" name="transaction-type">
+                            <option value="all">Tất cả giao dịch</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-date">Từ ngày</label>
+                        <input type="date" id="start-date" name="start-date">
+                    </div>
+                    <div class="form-group right">
+                        <label for="end-date">Đến ngày</label>
+                        <input type="date" id="end-date" name="end-date">
+                        <button type="button" class="search-btn" onclick="searchTransactions()">
+                            <img src="{{ url_for('static', filename='icons/search.svg') }}" alt="Search Icon" class="search-icon"> Tra cứu
+                        </button>
+                    </div>
+
+                </form>
+ 
+            </div>
+            <div class="transaction-results" id="transaction-results">
+                <div id="transaction-list" class="transaction-list"></div>
+            </div>
+            
+        </main>
+    </div>
+
+    <script>
+        function searchTransactions() {
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const transactionType = document.getElementById('transaction-type').value;
+
+            fetch('/search_transactions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ start_date: startDate, end_date: endDate, transaction_type: transactionType })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const transactionList = document.getElementById('transaction-list');
+                transactionList.innerHTML = '';
+
+                if (data.length === 0) {
+                    transactionList.innerHTML = '<p> Không có giao dịch phát sinh trong khoảng thời gian đã chọn </p>';
+                } else {
+                    data.forEach(transaction => {
+                        const transactionItem = document.createElement('div');
+                        transactionItem.className = 'transaction-item';
+                        const sign = transaction.amount < 0 ? '-' : '+';
+                        transactionItem.innerHTML = `
+                            <div class="details">
+                                <p>${transaction.timestamp} </p>
+                                <p>${transaction.description} </p>
+                                <p>Tài khoản nhận: ${transaction.recipient_stk} </p>
+                                <p>Tên thụ hưởng:  ${transaction.recipient_name} </p>
+                            </div>
+                            <div class="amount ${transaction.transaction_type === 'outgoing' ? 'negative' : 'positive'}">
+                                ${sign}${Math.abs(transaction.amount)} VND
+                            </div>
+                         
+                        `;
+                        transactionList.appendChild(transactionItem);
+                    });
+                }
+
+                // Show the transaction results
+                document.getElementById('transaction-results').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+.account-page {
+    font-family: Arial, sans-serif;
+    background-color: #fff7f7;
+    margin: 0;
+    padding: 0;
+    background-image: none; 
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #20C997;
+    position: fixed;
+    height: calc(100% - 45px); /* Adjust height to leave space at the top and bottom */
+    padding-top: 15px;
+    margin-top: 10px; /* Add margin at the top */
+    margin-left: 10px; /* Add margin on the left */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.bank-name {
+    font-size: 20px;
+    color: #0058d4;
+    margin: 0;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-info img.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-info h3, .user-info p {
+    margin: 5px 0;
+    color: #0058d4;
+}
+
+.sidebar-nav {
+    width: 100%;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px 0;
+    text-align: left;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;  /* Change color to white for visibility */
+    background: #f1eded;  /* Ensure background color contrasts with text color */
+    border: none;
+    border-radius: 10px;
+    transition: color 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;  /* Ensure buttons take full width */
+    height: 30px; /* Adjust height if necessary */
+    margin-left: 16px;
+    margin-right: 20px;
+}
+
+.sidebar-nav a:hover {
+    color: red;
+}
+
+.sidebar-nav .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.logout-container {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    display: block;
+    padding: 10px 15px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+}
+
+
+.main-content {
+    margin-left: 270px; /* adjust this value based on sidebar width */
+    padding: 20px;
+    width: calc(100% - 270px); /* adjust this value based on sidebar width */
+}
+
+.top-bar {
+    position: fixed;
+    top: 0px;
+    left: 56%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: calc(100% - 40px); /* Adjust width with margins */
+    max-width: 1200px; /* Increase max-width for better alignment */
+    background-color: #ffffff;
+    z-index: 1000;
+    padding: 15px 40px; /* Increase padding for better alignment */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    justify-content: fixed;
+    align-items: center;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.home-link .home-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.current-page {
+    font-size: 18px;
+    color: #af1237;
+    display: flex;
+    align-items: center;
+}
+
+.current-page .right-vector-icon {
+    width: 18px;
+    height: 18px;
+    padding: 10px;
+    margin-left: 5px; /* Adjust margin for proper spacing */
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 100px;
+    color: #000; /* Adjust the color as needed */
+}
+
+
+.account-balance-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 89%;
+
+}
+
+.transfer-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 89%;
+}
+
+
+.account-labels {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    width: 100%; /* Ensure labels take up the same width */
+}
+
+.transfer-labels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 5px;
+    width: 100%; /* Adjust as necessary to ensure full width */
+}
+
+.transfer-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+    width: 400%; /* Adjust as necessary to ensure full width */
+}
+
+.transfer-labels .transfer-label {
+    margin-bottom: 40px; /* Adjust for spacing */
+    padding: 10px;
+}
+
+.transfer-inputs .transfer-input {
+    width: 400%; /* Ensure inputs take full width */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-left: 100px;
+    margin-bottom: 10px; /* Add spacing between inputs */
+}
+
+.source-account-section, .balance-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipient-account-section, .transfer-amount-section, .transfer-detail {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.source-account-label, .balance-label, .transfer-amount-section-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.transfer-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+
+.info-container {
+    margin-right: 500px;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start for both containers */
+    width: 70%; /* Ensure inputs take up the same width */
+}
+
+.source-account-info, .balance-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 120%; /* Ensure full width for uniformity */
+}
+
+/*lmao */
+.recipient-account-info, .transfer-amount-info, .transfer-detail-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 190px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    width: 50%; /* Ensure full width for uniformity */
+
+}
+
+
+#source-account, #recipient-account, #transfer-amount, #transfer-detail {
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%; /* Ensure input fields take full width */
+}
+
+.balance-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.balance-amount {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.currency {
+    font-size: 18px;
+}
+
+.view-balance-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+.transfer-btn {
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #af1237;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+    align-self: flex-end; /* Align the button to the end */
+}
+
+.transfer-btn:hover {
+    background-color: #930021;
+}
+
+/* Add CSS to style the pop-up modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px; 
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

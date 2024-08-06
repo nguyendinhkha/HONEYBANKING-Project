@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.faq-section {
+    margin-top: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h2 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.faq-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+.faq-item ol {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.faq-item ol li {
+    list-style-type: decimal;
+    margin-bottom: 5px;
+    font-size: 0.875em;
+    color: #555;
+}

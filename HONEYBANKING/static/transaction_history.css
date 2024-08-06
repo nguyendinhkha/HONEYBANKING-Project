@@ -1,0 +1,362 @@
+ .transaction-history-page {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    background-image: none; 
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #20C997;
+    position: fixed;
+    height: calc(100% - 45px); /* Adjust height to leave space at the top and bottom */
+    padding-top: 15px;
+    margin-top: 10px; /* Add margin at the top */
+    margin-left: 10px; /* Add margin on the left */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.bank-name {
+    font-size: 20px;
+    color: #0058d4;
+    margin: 0;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-info img.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-info h3, .user-info p {
+    margin: 5px 0;
+    color: #0058d4;
+}
+
+.sidebar-nav {
+    width: 100%;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin: 10px 0;
+    text-align: left;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;  /* Change color to white for visibility */
+    background: #f1eded;  /* Ensure background color contrasts with text color */
+    border: none;
+    border-radius: 10px;
+    transition: color 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;  /* Ensure buttons take full width */
+    height: 30px; /* Adjust height if necessary */
+    margin-left: 16px;
+    margin-right: 20px;
+}
+
+.sidebar-nav a:hover {
+    color: red;
+}
+
+.sidebar-nav .icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.logout-container {
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    display: block;
+    padding: 10px 15px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+}
+
+
+.main-content {
+    margin-left: 270px; /* adjust this value based on sidebar width */
+    padding: 20px;
+    width: calc(100% - 260px); /* adjust this value based on sidebar width */
+}
+
+.top-bar {
+    position: fixed;
+    top: 0px;
+    left: 56%;
+    transform: translateX(-50%); /* Center horizontally */
+    width: calc(100% - 40px); /* Adjust width with margins */
+    max-width: 1200px; /* Increase max-width for better alignment */
+    background-color: #ffffff;
+    z-index: 1000;
+    padding: 15px 40px; /* Increase padding for better alignment */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    justify-content: fixed;
+    align-items: center;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.home-link .home-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.current-page {
+    font-size: 18px;
+    color: #af1237;
+    display: flex;
+    align-items: center;
+}
+
+.current-page .right-vector-icon {
+    width: 18px;
+    height: 18px;
+    padding: 10px;
+    margin-left: 5px; /* Adjust margin for proper spacing */
+}
+
+/* Lich su giao dich */
+.section-handle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 100px;
+    color: #000; /* Adjust the color as needed */
+}
+
+/* Add this CSS for the search transaction container */
+.search-transaction-content {
+    width: 89%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-transaction-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.search-transaction {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.warning-text {
+    color: #e64a19;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 110%;
+}
+
+.form-group.right {
+    justify-self: start;
+    margin-left: 150px;
+    width: 110%;
+   
+    
+}
+
+
+.form-group select, input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 60%;
+}
+
+.form-group.right select, input [type="date"]
+{
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 60%;
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 20px;
+    width: 20%;
+    background-color: #af1237;
+    color: white;
+    border: none;
+    cursor: pointer;
+    justify-self: start;
+    margin-top: 60px; 
+    margin-left: 290px;
+}
+
+.search-btn:hover {
+    background-color: #bf3e5c;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.transaction-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.transaction-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #af1237;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.transaction-buttons button:hover {
+    background-color: #930021;
+}
+
+.transaction-results {
+    display: none; /* Hide by default */
+    width: 89%;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.transaction-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.transaction-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #af1237;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.transaction-buttons button:hover {
+    background-color: #930021;
+}
+
+.transaction-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.transaction-item .details {
+    flex: 1;
+}
+
+.transaction-item .amount {
+    flex-shrink: 0;
+}
+
+.transaction-item .amount.positive {
+    color: green;
+}
+
+.transaction-item .amount.negative {
+    color: red;
+}
+
+
+

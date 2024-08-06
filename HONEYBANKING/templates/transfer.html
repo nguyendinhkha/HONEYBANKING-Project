@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Overview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='transfer.css') }}">
+</head>
+<body class="account-page">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='HONEYBANKING.jpg') }}" alt="HONEYBANKING Logo" class="logo">
+                <span class="bank-name">HONEYBANKING</span>
+            </div> 
+            <div class="user-info">
+                <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="User Avatar" class="avatar">
+                <h3> {{ user.full_name }} </h3>
+                <p>STK: {{ user.stk }} </p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#">
+                    <img src="{{ url_for('static', filename='chuyentien.jpg') }}" alt="Chuyển tiền" class="icon">
+                    Chuyển tiền
+                </a>
+                <a href="{{ url_for('account') }}">
+                    <img src="{{ url_for('static', filename='taikhoan.jpg') }}" alt="Tài khoản" class="icon">
+                    Tài khoản
+                </a>
+                <a href="#">
+                    <img src="{{ url_for('static', filename='dichvuthe.jpg') }}" alt="Dịch vụ thẻ" class="icon">
+                    Dịch vụ thẻ
+                </a>
+            </nav>
+            <div class="logout-container">
+                <a href="{{ url_for('logout') }}" class="logout-btn">Đăng xuất</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <div class="top-bar">
+                <a href="{{ url_for('account_overview') }}" class="home-link">
+                    <img src="{{ url_for('static', filename='icons/home.svg') }}" alt="Home Icon" class="home-icon">
+                    Trang chủ
+                </a>
+                <div class="current-page">
+                    <img src="{{ url_for('static', filename='icons/right-vector.svg') }}" alt="Right Vector" class="right-vector-icon">
+                    <span>Chuyển trong HONEYBANKING</span>       
+                </div>
+            </div>
+            <div class="section-title">
+                Chuyển trong HONEYBANKING
+            </div>
+                <div class="account-balance-container">
+                    <div class="account-labels">
+                        <div class="source-account-section">
+                            <label for="source-account" class="source-account-label">Từ tài khoản nguồn</label>
+                        </div>
+                        <div class="balance-section">
+                            <label for="balance" class="balance-label">Số dư</label>
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <div class="source-account-info">
+                            <select id="source-account" name="source_account">
+                                <option value="{{ user.stk }}">{{ user.stk }}</option>
+                            </select>
+                        </div>
+                        <div class="balance-info">
+                            <span class="balance-amount">{{user.balance}}</span>
+                            <span class="currency">VND</span>
+                            <button class="view-balance-btn">&#128065;</button> <!-- Eye icon -->
+                        </div>
+                    </div>
+                </div>
+                <form action="{{ url_for('transfer') }}" method="post" id="transfer-form">
+                    <div class="transfer-details-container">
+                        <div class="transfer-labels">
+                            <div class="recipient-account-section">
+                                <label for="recipient-account" class="transfer-label">Tài khoản thụ hưởng</label>
+                            </div>
+                            <div class="transfer-amount-section">
+                                <label for="transfer-amount" class="transfer-label">Số tiền</label>
+                            </div>
+                            <div class="transfer-detail-section">
+                                <label for="transfer-detail" class="transfer-label">Nội dung chuyển tiền</label>
+                            </div>
+                        </div>
+                        <div class="transfer-inputs">
+                            <div class="recipient-account-info">
+                                <input type="text" id="recipient-account" name="recipient_account" class="transfer-input" placeholder="Nickname/Số ĐT/Tài khoản" required>
+                            </div>
+                            <div class="transfer-amount-info">
+                                <input type="number" id="transfer-amount" name="transfer_amount" class="transfer-input" placeholder="Nhập số tiền chuyển" required>
+                            </div>
+                            <div class="transfer-detail-info">
+                                <input type="text" id="transfer-detail" name="transfer_detail" class="transfer-input" placeholder="Vui lòng nhập nội dung chuyển khoản" required>
+                            </div>
+                            <button type="submit" class="transfer-btn">Chuyển tiền</button>
+                        </div>
+                    </div>
+                </form>
+                
+        </main>
+        <!-- Pop-up Modal -->
+        <div id="transferModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <p id="transferMessage"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showModal(message) {
+            var modal = document.getElementById("transferModal");
+            var messageElement = document.getElementById("transferMessage");
+            messageElement.innerHTML = message;
+            modal.style.display = "block";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("transferModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.getElementById("transfer-form").reset();  // Reset the form
+                location.reload();  // Reload the page after the modal is closed
+            }
+        }
+
+        document.querySelector('.close-btn').onclick = function() {
+            var modal = document.getElementById("transferModal");
+            modal.style.display = "none";
+            document.getElementById("transfer-form").reset();  // Reset the form
+            location.reload();  // Reload the page after the modal is closed
+        }
+
+        document.getElementById("transfer-form").onsubmit = function(event) {   // Listens for the form's submit event 
+            event.preventDefault();   // prevents the default form submission
+            var form = event.target;
+
+            var formData = new FormData(form);   // Collects the data entered in the form.
+            var xhr = new XMLHttpRequest();     // XMLHttpRequest: Sends the form data via POST to the server-side transfer handler
+            xhr.open("POST", form.action, true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    showModal(response.message);
+                } else {
+                    alert("Transfer failed!");
+                }
+            };
+            xhr.send(formData);
+        };
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hỏi đáp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='html-qa.css') }}">
+</head>
+<body>
+    <a href="{{ url_for('dkdn') }}" class="hoidap-button">
+        <span>Đăng ký và đăng nhập</span>
+        <img src="{{ url_for('static', filename='hoidap/arrow.jpg') }}">
+    </a>
+    <a href="{{ url_for('mk') }}" class="hoidap-button"> 
+        <span>Mật khẩu và bảo mật</span>
+        <img src="{{ url_for('static', filename='hoidap/arrow.jpg') }}" >
+    </a>
+    <a href="{{ url_for('chuyen_khoan') }}" class="hoidap-button">
+        <span>Chuyển khoản</span>
+        <img src="{{ url_for('static', filename='hoidap/arrow.jpg') }}">
+    </a>
+    <a href="{{ url_for('dich_vu_the') }}" class="hoidap-button">
+        <span>Dịch vụ thẻ</span>
+        <img src="{{ url_for('static', filename='hoidap/arrow.jpg') }}">
+    </a>
+    <a href="{{ url_for('tin_bien_dong_so_du') }}"class="hoidap-button">
+        <span>Tin biến động số dư OTT</span>
+        <img src="{{ url_for('static', filename='hoidap/arrow.jpg') }}">
+    </a>
+    <a href="{{ url_for('cau_hoi_khac') }}" class="hoidap-button">
+        <span>Câu hỏi khác</span>
+        <img src="{{ url_for('static', filename='hoidap/arrow.jpg') }}">
+    </a>
+</body>
+</html>

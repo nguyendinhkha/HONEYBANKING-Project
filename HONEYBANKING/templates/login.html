@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body class="login-page">
+    <div class="top-left">
+        <img src="{{ url_for('static', filename='HONEYBANKING.jpg') }}" alt="HONEYBANKING Logo" class="logo">
+        <span class="HONEYBANKING-text">HONEYBANKING</span>
+    </div>
+    <div class="login-container">
+        <form class="login-form" action="{{ url_for('login') }}" method="post">
+            <h2>Đăng nhập</h2>
+            <p>Vui lòng nhập số điện thoại và mật khẩu để đăng nhập HONEYBANKING.</p>
+            <label for="username">Số điện thoại</label>
+            <input type="tel" id="username" name="username" placeholder="Nhập số điện thoại" maxlength="10" pattern="\d{10}" required>
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" minlength="6" maxlength="18" required>
+           
+            <button type="submit">Tiếp tục</button>
+            <p class="error-message">{{ error }}</p>
+            <a href="#">Quên mật khẩu?</a>
+        </form>
+    </div>
+
+    <div class="help-container">
+        <button class="help-button">
+            <img src="{{ url_for('static', filename='icons/question-mark.svg') }}" alt="Hỏi đáp">
+            <a href="{{ url_for('hoidap') }}">Hỏi đáp</a>
+        </button>
+    </div>
+    
+    <div id="notification" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span class="close" onclick="closePopup()">&times;</span>
+            </div>
+            <div class="popup-body">
+                <p id="notification-text"></p>
+            </div>
+            <div class="popup-footer">
+                <button class="popup-close-button" onclick="closePopup()">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const username = document.querySelector('input[name="username"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+            if (!/^\d{10}$/.test(username)) {
+                e.preventDefault();
+                document.querySelector('.error-message').innerText = 'Số điện thoại không hợp lệ.';
+            } 
+            else if (password.length < 6 && password.length > 18) {
+            e.preventDefault();
+            document.querySelector('.error-message').innerText = 'Mật khẩu phải từ 6 đến 18 ký tự.';
+        }
+        });
+
+        document.querySelector('input[name="username"]').addEventListener('input', function (e) {
+        this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+
+        document.querySelector('input[name="password"]').addEventListener('input', function (e) {
+        this.value = this.value.slice(0, 18);
+        });
+
+        function closePopup() {
+            document.getElementById('notification').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('error')) {
+                const error = urlParams.get('error');
+                let message = '';
+                if (error === 'user_not_found') {
+                    message = 'Thông tin đăng nhập không chính xác. Quý khách vui lòng kiểm tra lại.';
+                }
+
+                document.getElementById('notification-text').innerText = message;
+                document.getElementById('notification').style.display = 'block';
+            }
+        });
+    </script>
+
+    
+</body>
+</html>

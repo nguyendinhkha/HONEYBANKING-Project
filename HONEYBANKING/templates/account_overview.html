@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Overview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="account-page">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='HONEYBANKING.jpg') }}" alt="HONEYBANKING Logo" class="logo">
+                <span class="bank-name">HONEYBANKING</span>
+            </div>
+            <div class="user-info">
+                <img src="{{ url_for('static', filename='avatar.jpg') }}" alt="User Avatar" class="avatar">
+                <h3>{{ user.full_name }}</h3>
+                <p>STK: {{ user.stk }}</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="{{ url_for('transfer') }}" class="transfer-btn">
+                    <img src="{{ url_for('static', filename='chuyentien.jpg') }}" alt="Chuyển tiền" class="icon">
+                    Chuyển tiền
+                </a>
+                <a href="{{ url_for('account') }}">
+                    <img src="{{ url_for('static', filename='taikhoan.jpg') }}" alt="Tài khoản" class="icon">
+                    Tài khoản
+                </a>
+                <a href="#">
+                    <img src="{{ url_for('static', filename='dichvuthe.jpg') }}" alt="Dịch vụ thẻ" class="icon">
+                    Dịch vụ thẻ
+                </a>
+            </nav>
+
+            <div class="logout-container">
+                <a href="{{ url_for('logout') }}" class="logout-btn">Đăng xuất</a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="search-bar-header">
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm trong HONEYBANKING" id="search-input">
+                </div>
+                <div class="search-suggestions">
+                    <p>Từ khoá gợi ý</p>
+                    <div class="suggestions">
+                        <span>Chuyển tiền</span>
+                        <span>Thanh toán hoá đơn</span>
+                        <span>Cài đặt tài khoản</span>
+                        <span>Thanh toán thẻ tín dụng</span>
+                    </div>
+                </div>
+            </header>
+            <section class="banner">
+                <img src="{{ url_for('static', filename='banner_home.jpg') }}" alt="Home Banner">
+            </section>
+            <section class="services">
+                <h2 class="services-title">Dịch vụ ngân hàng</h2>
+            </section>
+            <section class="banking-services">
+                <div class="service-buttons">
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='thanh_toan_hoa_don.jpg') }}" alt="Thanh toán hoá đơn">
+                        <p>Thanh toán hoá đơn</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='tra_no_tien_vay.jpg') }}" alt="Trả nợ tiền vay">
+                        <p>Trả nợ tiền vay</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='tien_gui.jpg') }}" alt="Tiền gửi">
+                        <p>Tiền gửi</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='nap_tien_dien_thoai_data.jpg') }}" alt="Nạp tiền điện thoại/data">
+                        <p>Nạp tiền điện thoại/data</p>
+                    </div>                 
+                </div>
+                <div class="additional-services">
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='chung_khoan.jpg') }}" alt="Chứng khoán">
+                        <p>Chứng khoán</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='bao_hiem.jpg') }}" alt="Bảo hiểm">
+                        <p>Bảo hiểm</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='ma_the.jpg') }}" alt="Mã thẻ">
+                        <p>Mã thẻ</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="{{ url_for('static', filename='nap_tien_dich_vu.jpg') }}" alt="Nạp tiền dịch vụ">
+                        <p>Nạp tiền dịch vụ</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <aside class="settings-sidebar">
+            <h2 class="settings-title">Tiện ích & Cài đặt</h2>
+            <ul class="settings-list">
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/lich_su_giao_dich.jpg') }}" alt="Lịch sử giao dịch">
+                    <a href="{{ url_for('transaction_history') }}">Lịch sử giao dịch</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/cai_dat_han_muc.jpg') }}" alt="Cài đặt hạn mức">
+                    <a href="#">Cài đặt hạn mức</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/thanh_toan_hoa_don_tu_dong.jpg') }}" alt="Thanh toán hóa đơn tự động">
+                    <a href="#">Thanh toán hóa đơn tự động</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/quan_ly_nickname.jpg') }}" alt="Quản lý nickname">
+                    <a href="#">Quản lý nickname</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/cai_dat_avatar.jpg') }}" alt="Cài đặt avatar">
+                    <a href="#">Cài đặt avatar</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/doi_mat_khau.jpg') }}" alt="Đổi mật khẩu">
+                    <a href="#">Đổi mật khẩu</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/cai_dat_tai_khoan.jpg') }}" alt="Cài đặt tài khoản">
+                    <a href="#">Cài đặt tài khoản</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/quan_ly_danh_ba.jpg') }}" alt="Quản lý danh bạ">
+                    <a href="#">Quản lý danh bạ</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/tra_cuu_thong_tin.jpg') }}" alt="Tra cứu thông tin">
+                    <a href="#">Tra cứu thông tin</a>
+                </li>
+                <li class="settings-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/thong_tin_ung_dung.jpg') }}" alt="Thông tin ứng dụng">
+                    <a href="#">Thông tin ứng dụng</a>
+                </li>
+            </ul>
+            <div class="hoi-dap-container">
+                <li class="settings-item hoi-dap-item">
+                    <img src="{{ url_for('static', filename='tien_ich_icons/hoi_dap.jpg') }}" alt="Hỏi đáp">
+                    <a href="{{ url_for('hoidap') }}">Hỏi đáp</a>
+                </li>
+            </div>
+        </aside>
+
+    </div>
+    <script>
+        document.getElementById('search-input').addEventListener('focus', function() {
+            document.querySelector('.search-suggestions').style.display = 'block';
+        });
+
+        document.getElementById('search-input').addEventListener('blur', function() {
+            document.querySelector('.search-suggestions').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
